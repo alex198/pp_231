@@ -16,13 +16,12 @@ public class UserServiceImp implements UserService {
     public UserServiceImp(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
-    @Transactional
+
     @Override
     public User getUserById(Long id) {
         return userDAO.getUserById(id);
     }
 
-    @Transactional
     @Override
     public List<User> getAllUsers() {
         return userDAO.getAllUsers();
@@ -30,7 +29,8 @@ public class UserServiceImp implements UserService {
 
     @Transactional
     @Override
-    public void saveUser(User user) {userDAO.saveUser(user);
+    public void saveUser(User user) {
+        userDAO.saveUser(user);
     }
 
     @Transactional
