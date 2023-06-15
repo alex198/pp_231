@@ -39,12 +39,12 @@ public class UsersController {
         return "redirect:/users";
     }
     @GetMapping("user-delete")
-    public String deleteUser(@RequestParam(value = "id", required = false) String id) {
+    public String deleteUser(@RequestParam(value = "id") String id) {
         userService.deleteUser(Long.parseLong(id));
         return "redirect:/users";
     }
     @GetMapping("/user-update")
-    public String updateUserForm(@RequestParam(value = "id", required = false) Long id, Model model) {
+    public String updateUserForm(@RequestParam(value = "id") Long id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
         return "/user-update";
